@@ -1,3 +1,2 @@
-require("dotenv").config();
 .env
 node_modules/
