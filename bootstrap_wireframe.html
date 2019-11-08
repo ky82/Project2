@@ -18,76 +18,73 @@
 
 
 <body> 
-        <div class="container">
-                <div class="jumbotron" id="title">
-                <h1>Music search</h1> 
-                <p>check out my mixtape</p> 
-                </div>
-                <br>
-                <div class="row">
-                        <label for="site-search">Artist Name:</label>
+    <div class="container">
+        <div class="jumbotron" id="title">
+            <h1>Music search</h1> 
+            <p>check out my mixtape</p> 
+        </div><br>
+                
+        <div class="row">
+            <div class="col m6">
+                <h3>Database</h3>
+                <table>
+                    <tr>
+                        <th>Artist</th>
+                        <th>Track Name</th>
+                    </tr>
+                    <tr>
+                        <td>Kanye West</td>
+                        <td>Selah</td>
+                    </tr>
+                </table>
+                <label for="site-search">Add a song:</label>
+                <form class="form-inline">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Required" aria-label="Search" id="addArtist">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Required" aria-label="Search" id="addTrack">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Add to playlist</button>
+                </form>   
+            </div>
+            <div class="col m6">
+                <h3>playlist</h3>
+                    <p>Sriracha biodiesel taxidermy organic post-ironic, Intelligentsia salvia mustache 90's code editing brunch. Butcher polaroid VHS art party, hashtag Brooklyn deep v PBR narwhal sustainable mixtape swag wolf squid tote bag. Tote bag cronut semiotics,
+                        raw denim deep v taxidermy messenger bag. Tofu YOLO Etsy, direct trade ethical Odd Future jean shorts paleo. Forage Shoreditch tousled aesthetic irony, street art organic Bushwick artisan cliche semiotics ugh synth chillwave meditati
+                        Shabby chic lomo plaid vinyl chambray Vice. Vice sustainable cardigan, Williamsburg master cleanse hella DIY 90's blog.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col 6">
+                <div id="searchBox">
+                    <label for="site-search">Artist Name:</label>
                         <form class="form-inline">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="artistName">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Required" aria-label="Search" id="artistName">
                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                         </form>
-                </div><br>
-                <div class="row">
-                        <label for="site-search">Song Title:</label>
+                        <br>
+                    <label for="site-search">Similar Track:</label>
                         <form class="form-inline">
-                                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="songName">
-                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                            </form>
-                </div><br>
-                <div class="row">
-                        <label for="site-search">Tag:</label>
-                        <form class="form-inline">
-                                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="tag">
-                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                            </form>
-                    </div><br>
-                <div class="row">
-                    <div class="col m4">
-                        <h3>Database</h3>
-            
-                        <div class="divider"></div>
+                            <input class="form-control mr-sm-2" type="search" placeholder="Required" aria-label="Search" id="simArtist">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Required" aria-label="Search" id="simTrack">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                </div>
+            </div><br>
+
+            <div class="col 6">
+                <div id="searchResult">
+                    <h3>search results</h3>
                         <p>Sriracha biodiesel taxidermy organic post-ironic, Intelligentsia salvia mustache 90's code editing brunch. Butcher polaroid VHS art party, hashtag Brooklyn deep v PBR narwhal sustainable mixtape swag wolf squid tote bag. Tote bag cronut semiotics,
-                            raw denim deep v taxidermy messenger bag. Tofu YOLO Etsy, direct trade ethical Odd Future jean shorts paleo. Forage Shoreditch tousled aesthetic irony, street art organic Bushwick artisan cliche semiotics ugh synth chillwave meditation.
-                            Shabby chic lomo plaid vinyl chambray Vice. Vice sustainable cardigan, Williamsburg master cleanse hella DIY 90's blog.</p>
-                            
-                        
-                        
-                    </div>
-                            <div class="col m4">
-                        <h3>search results</h3>
-            
-                        <div class="divider"></div>
-                        <p>Sriracha biodiesel taxidermy organic post-ironic, Intelligentsia salvia mustache 90's code editing brunch. Butcher polaroid VHS art party, hashtag Brooklyn deep v PBR narwhal sustainable mixtape swag wolf squid tote bag. Tote bag cronut semiotics,
-                            raw denim deep v taxidermy messenger bag. Tofu YOLO Etsy, direct trade ethical Odd Future jean shorts paleo. Forage Shoreditch tousled aesthetic irony, street art organic Bushwick artisan cliche semiotics ugh synth chillwave meditation.
-                            Shabby chic lomo plaid vinyl chambray Vice. Vice sustainable cardigan, Williamsburg master cleanse hella DIY 90's blog.</p>
-                            
-                        
-                        
-                    </div>
-                    <div class="col m4">
-                            <h3>playlist</h3>
-                
-                            <div class="divider"></div>
-                            <p>Sriracha biodiesel taxidermy organic post-ironic, Intelligentsia salvia mustache 90's code editing brunch. Butcher polaroid VHS art party, hashtag Brooklyn deep v PBR narwhal sustainable mixtape swag wolf squid tote bag. Tote bag cronut semiotics,
-                                raw denim deep v taxidermy messenger bag. Tofu YOLO Etsy, direct trade ethical Odd Future jean shorts paleo. Forage Shoreditch tousled aesthetic irony, street art organic Bushwick artisan cliche semiotics ugh synth chillwave meditation.
-                                Shabby chic lomo plaid vinyl chambray Vice. Vice sustainable cardigan, Williamsburg master cleanse hella DIY 90's blog.</p>
-                                
-                            
-                            
-                        </div>
-                    
-                    
-                        
-                            </div>
-                        </div>
-            
-                    </div>
-                    <footer>
-                        <p>Github</p>
-                    </footer>
+                        raw denim deep v taxidermy messenger bag. Tofu YOLO Etsy, direct trade ethical Odd Future jean shorts paleo. Forage Shoreditch tousled aesthetic irony, street art organic Bushwick artisan cliche semiotics ugh synth chillwave meditation.
+                        Shabby chic lomo plaid vinyl chambray Vice. Vice sustainable cardigan, Williamsburg master cleanse hella DIY 90's blog.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <footer>
+                <p>Github</p>
+            </footer>
+        </div>
+    </div>
 </body>   
 </html>
