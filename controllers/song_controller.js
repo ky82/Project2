@@ -5,13 +5,13 @@ var router = express.Router();
 var songs = require("../models/song.js");
 
 router.get("/", function(req,res){
-	res.redirect("songs")
+	res.redirect("song")
 });
 
-router.get("/songs", function(req,res){
+router.get("/song", function(req,res){
 	songs.selectAll(function(data){
 		var hbsObject = {
-			songs: data
+			song: data
 		};
 		console.log(hbsObject);
 		res.render("index", hbsObject);
