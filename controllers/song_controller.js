@@ -2,14 +2,14 @@ var express = require("express");
 
 var router = express.Router();
 
-var songs = require("../models/song.js");
+var db = require("../models");
 
 router.get("/", function(req,res){
 	res.redirect("songs")
 });
 
 router.get("/songs", function(req,res){
-	songs.selectAll(function(data){
+	db.selectAll(function(data){
 		var hbsObject = {
 			songs: data
 		};
@@ -19,7 +19,7 @@ router.get("/songs", function(req,res){
 });
 
 router.post("/songs/add", function(req,res){
-	songs.insertOne([
+	db.insertOne([
 		"track"
 		],[
 			req.body.track
