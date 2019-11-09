@@ -5,13 +5,12 @@ var router = express.Router();
 var db = require("../models");
 
 router.get("/", function(req,res){
-	res.redirect("songs")
+	res.redirect("song")
 });
-
-router.get("/songs", function(req,res){
-	db.selectAll(function(data){
+router.get("/song", function(req,res){
+	songs.selectAll(function(data){
 		var hbsObject = {
-			songs: data
+			song: data
 		};
 		console.log(hbsObject);
 		res.render("index", hbsObject);
