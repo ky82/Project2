@@ -23,7 +23,6 @@ app.set("view engine", "handlebars");
 
 // Routes
 var routes = require("./controllers/song_controller.js");
-
 app.use(routes);
 
 var syncOptions = { force: false };
