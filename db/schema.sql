@@ -6,8 +6,8 @@ create database Songs_dataset;
 use Songs_dataset;
 CREATE TABLE songs (
     id INTEGER AUTO_INCREMENT NOT NULL,
-    artistname VARCHAR(100),
-    trackname VARCHAR(100),
+    artist VARCHAR(100),
+    track VARCHAR(100),
     playlistname VARCHAR(100),
     PRIMARY KEY (id)
 );
