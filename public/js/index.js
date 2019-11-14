@@ -6,25 +6,25 @@ var $exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  saveExample: function(song) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
+      url: "api/songs",
+      data: JSON.stringify(song)
     });
   },
   getExamples: function() {
     return $.ajax({
-      url: "api/examples",
+      url: "api/songs",
       type: "GET"
     });
   },
   deleteExample: function(id) {
     return $.ajax({
-      url: "api/examples/" + id,
+      url: "api/songs/" + id,
       type: "DELETE"
     });
   }
@@ -33,15 +33,16 @@ var API = {
 // refreshExamples gets new examples from the db and repopulates the list
 var refreshExamples = function() {
   API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
+    console.log(data);
+    var $examples = data.map(function(song) {
       var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
+        .text(song.artist)
+        .attr("href", "/song/" + song.id);
 
       var $li = $("<li>")
         .attr({
           class: "list-group-item",
-          "data-id": example.id
+          "data-id": song.id
         })
         .append($a);
 
@@ -63,23 +64,45 @@ var refreshExamples = function() {
 // Save the new example to the db and refresh the list
 var handleFormSubmit = function(event) {
   event.preventDefault();
-
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
-  };
-
-  if (!(example.text && example.description)) {
+  var search_artist = $exampleText.val().trim();
+  var search_track = $exampleDescription.val().trim();
+  console.log(search_artist);
+  console.log(search_track);
+  // var song = {
+  //   artist: $exampleText.val().trim(),
+  //   track: $exampleDescription.val().trim(),
+  // }
+  if (!(search_artist && search_track)) {
     alert("You must enter an example text and description!");
     return;
-  }
+  }else{
+  var api_key = "6336c0362dff24693fdbf7412aa57a22";
+  var queryURL = "http://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=" + api_key + "&artist=" + search_artist + "&track=" + search_track +"&format=json";
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  })
+    // After data comes back from the request
+    .then(function(response){
+      console.log(response);
+      var results = response.track;
+      var song = {
+        artist: results.album.artist,
+        track: results.album.title,
+        track_image: results.album.image[3]["#text"],
+        track_published: results.wiki.published,
+        track_summary: results.wiki.summary
+      };
+    
+      API.saveExample(song).then(function() {
+        refreshExamples();
+      });
+    
+      $exampleText.val("");
+      $exampleDescription.val("");
+    });
+  };
 
-  API.saveExample(example).then(function() {
-    refreshExamples();
-  });
-
-  $exampleText.val("");
-  $exampleDescription.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
