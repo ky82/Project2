@@ -5,7 +5,7 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     db.Song.findAll({}).then(function(dbExamples) {
       res.render("index", {
-        msg: "Welcome!",
+        msg: "Let's make a Mixtape!",
         songs: dbExamples
       });
     });
