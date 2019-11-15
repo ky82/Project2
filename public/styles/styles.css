@@ -1,3 +1,49 @@
-.list-group-item {
-  line-height: 2.5;
+body  {
+    background-image: url("../assets/images/mixtape.jpeg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 50% auto;
+    }
+
+h1 {
+    font-family: 'Chango', cursive;
+    color: #CB3737;
+  }
+
+h2, h3 {
+    color: #CB3737;
+    font-weight: bold;
 }
+
+  .form-group {
+      color: #EE6F57;
+      font-weight: bold;
+  }
+
+  li { 
+      color: #EE6F57;
+  }
+  
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333333;
+  }
+  
+  #github {
+    float: left;
+  }
+  
+  #github a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+  }
+  
+  #github a:hover {
+    background-color: #111111;
+  }
