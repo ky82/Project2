@@ -37,13 +37,13 @@ var refreshExamples = function() {
     var $examples = data.map(function(song) {
       var $artist = $("<a>")
       .text(song.artist)
-      .attr("href", "/song/" + song.id);
+      .attr({"href":"/song/" + song.id, id: "artist"});
 
       var $track = $("<a>")
       .text(song.track)
-      .attr("href", "/song/" + song.id);
+      .attr({"href":"/song/" + song.id,id: 'track'});
       var $summary = $("<a>")
-      .text(song.track_summary);
+      .text(song.track_summary).attr({id:'summary'});
 
       var $img = $("<img>")
       .attr({class:"float-left",src:song.track_image});

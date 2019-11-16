@@ -1,7 +1,7 @@
 <div id="home">
   <div class="container">
     <div class="row">
-      <div class="col-8 offset-2">
+      <div class="col-12">
         <h1>{{msg}}</h1>
         <h2>Track Search</h2>
         <form class="clearfix mb-4" action="POST">
@@ -20,9 +20,9 @@
           {{#each songs}}
           <li data-id="{{this.id}}" class="list-group-item">
             <img class="float-left" src={{this.track_image}}> 
-            <a href="song/{{this.id}}">Artist: {{this.artist}}</a></br>
-            <a href="song/{{this.id}}">{{this.track}}</a> </br>
-            <a>{{this.track_summary}}</a>
+            <a id = "artist" href="song/{{this.id}}">Artist: {{this.artist}}</a></br>
+            <a id = 'track' href="song/{{this.id}}">{{this.track}}</a> </br>
+            <a id = 'summary'>{{this.track_summary}}</a>
             <button class="btn btn-danger float-right delete">ｘ</button>
           </li>
           {{/each}}
