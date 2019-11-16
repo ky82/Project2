@@ -35,22 +35,31 @@ var refreshExamples = function() {
   API.getExamples().then(function(data) {
     console.log(data);
     var $examples = data.map(function(song) {
-      var $a = $("<a>")
-        .text(song.artist)
-        .attr("href", "/song/" + song.id);
+      var $artist = $("<a>")
+      .text(song.artist)
+      .attr("href", "/song/" + song.id);
+
+      var $track = $("<a>")
+      .text(song.track)
+      .attr("href", "/song/" + song.id);
+      var $summary = $("<a>")
+      .text(song.track_summary);
+
+      var $img = $("<img>")
+      .attr({class:"float-left",src:song.track_image});
 
       var $li = $("<li>")
         .attr({
           class: "list-group-item",
           "data-id": song.id
         })
-        .append($a);
+        .append($img).append($artist).append('<br>').append($track).append('<br>').append($summary);
 
       var $button = $("<button>")
         .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
+        .text("x");
 
-      $li.append($button);
+        $li.append($button);
 
       return $li;
     });
