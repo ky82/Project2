@@ -93,16 +93,15 @@ var handleFormSubmit = function(event) {
   })
     // After data comes back from the request
     .then(function(response){
-      console.log(response);
       var results = response.track;
       var song = {
         artist: results.album.artist,
         track: results.album.title,
         track_image: results.album.image[3]["#text"],
-        track_published: results.wiki.published,
+        track_published: response.track.url,
         track_summary: results.wiki.summary
       };
-    
+      console.log(song.track_published);
       API.saveExample(song).then(function() {
         refreshExamples();
       });
